@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NextPlay — ขายไอดีเกม</title>
+  <link rel="stylesheet" href="nextplay.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">NextPlay</div>
+      <nav class="nav">
+        <a href="#home">หน้าแรก</a>
+        <a href="#products">สินค้า</a>
+        <a href="#pricing">ราคา</a>
+        <a href="about.html">About</a>
+        <a href="members.html">Members</a>
+        <a href="#contact">ติดต่อ</a>
+        <button id="openAuthBtn" class="btn" style="margin-left:1rem">บัญชี</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Search & Filter bar (UI-only) -->
+  <section class="search-bar container">
+    <form id="searchForm" onsubmit="return false;" class="search-form">
+      <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap">
+        <input type="search" name="q" placeholder="ค้นหาเกมหรือคำสำคัญ เช่น 'Genshin'" style="flex:1;padding:.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:#0b0908;color:var(--muted)" />
+        <select name="game" style="padding:.55rem;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:#0b0908;color:var(--muted)">
+          <option value="">ทุกเกม</option>
+          <option>Genshin</option>
+          <option>PUBG</option>
+          <option>RoV</option>
+          <option>Free Fire</option>
+          <option>Valorant</option>
+          <option>Overwatch</option>
+        </select>
+        <select name="price" style="padding:.55rem;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:#0b0908;color:var(--muted)">
+          <option value="">ช่วงราคา</option>
+          <option value="0-150">ต่ำกว่า ฿150</option>
+          <option value="150-300">฿150 - ฿300</option>
+          <option value="300+">มากกว่า ฿300</option>
+        </select>
+        <select name="sort" style="padding:.55rem;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:#0b0908;color:var(--muted)">
+          <option value="">เรียงตาม</option>
+          <option value="popular">ยอดนิยม</option>
+          <option value="price-asc">ราคาต่ำสุด</option>
+          <option value="price-desc">ราคาสูงสุด</option>
+        </select>
+        <button class="btn" onclick="document.getElementById('searchForm').reset();">รีเซ็ต</button>
+      </div>
+    </form>
+  </section>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-inner" style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap">
+        <div style="flex:1;min-width:260px">
+          <h1>NextPlay — ตลาดขายไอดีเกม</h1>
+          <p>รวมไอดีเกมยอดนิยมจากหลายแพลตฟอร์ม ตรวจสอบสเตตัส และรีวิวจากผู้ซื้อจริง</p>
+          <div style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap">
+            <a class="btn primary" href="#products">ดูสินค้า</a>
+            <a class="btn" href="#pricing">ดูแพ็คเกจราคา</a>
+            <a class="btn" href="#" onclick="alert('ดาวน์โหลดแอพตัวอย่าง (mock)');return false;">ดาวน์โหลด</a>
+          </div>
+        </div>
+        <div style="width:320px;max-width:40%;min-width:180px">
+          <img src="../img/genshin.png" alt="NextPlay Highlight" style="width:100%;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.6)" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Features removed per request -->
+
+    <section class="container best-sellers">
+      <h2 class="section-title">แนะนำไอดีขายดี</h2>
+      <div class="sellers-row">
+        <article class="seller" data-id="3">
+          <img src="../img/genshin.png" alt="Genshin" />
+          <div class="meta">
+            <h3>Genshin — ตัวละคร 5★</h3>
+            <p class="price">฿450</p>
+            <button class="btn" data-buy="3">ซื้อเลย</button>
+          </div>
+        </article>
+
+        <article class="seller" data-id="1">
+          <img src="../img/pubg.png" alt="PUBG" />
+          <div class="meta">
+            <h3>PUBG — เซิฟไทย, Rank: Conqueror</h3>
+            <p class="price">฿120</p>
+            <button class="btn" data-buy="1">ซื้อเลย</button>
+          </div>
+        </article>
+
+        <article class="seller" data-id="5">
+          <img src="../img/valorant.png" alt="Valorant" />
+          <div class="meta">
+            <h3>Valorant — Rank: Platinum</h3>
+            <p class="price">฿300</p>
+            <button class="btn" data-buy="5">ซื้อเลย</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Testimonials removed per request -->
+
+    <section id="products" class="container products">
+      <h2 class="section-title">รายการสินค้า</h2>
+      <div class="grid" id="productGrid">
+        <!-- Product cards are rendered by nextplay.js -->
+      </div>
+    </section>
+
+    <!-- Pricing (optional) -->
+    <section id="pricing" class="container pricing">
+      <h2 class="section-title">แพ็คเกจราคา</h2>
+      <div class="pricing-row">
+        <div class="price-card">
+          <h3>แพ็คมาตรฐาน</h3>
+          <p class="price">฿150</p>
+          <ul>
+            <li>ไอดีพร้อมสกินพื้นฐาน</li>
+            <li>รับประกัน 3 วัน (ตัวอย่าง)</li>
+          </ul>
+          <button class="btn" onclick="alert('สั่งซื้อ mock: แพ็คมาตรฐาน');">ซื้อแพ็ค</button>
+        </div>
+        <div class="price-card popular">
+          <h3>แพ็คยอดนิยม</h3>
+          <p class="price">฿299</p>
+          <ul>
+            <li>ไอดีมีตัวละคร/สกินระดับกลาง</li>
+            <li>รับประกัน 7 วัน (ตัวอย่าง)</li>
+          </ul>
+          <button class="btn primary" onclick="alert('สั่งซื้อ mock: แพ็คยอดนิยม');">ซื้อแพ็ค</button>
+        </div>
+        <div class="price-card">
+          <h3>แพ็คพรีเมียม</h3>
+          <p class="price">฿499</p>
+          <ul>
+            <li>ไอดีพร้อมตัวละคร/สกินระดับสูง</li>
+            <li>รับประกัน 14 วัน (ตัวอย่าง)</li>
+          </ul>
+          <button class="btn" onclick="alert('สั่งซื้อ mock: แพ็คพรีเมียม');">ซื้อแพ็ค</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action (optional) -->
+    <section class="container cta">
+      <div class="cta-inner">
+        <h2>พร้อมจะซื้อไอดีคุณภาพแล้วหรือยัง?</h2>
+        <p class="muted">เลือกสินค้าแล้วกด 'ซื้อเลย' เพื่อทดสอบการสั่งซื้อแบบตัวอย่าง</p>
+        <div style="margin-top:1rem"><a class="btn primary" href="#products">ดูสินค้า</a></div>
+      </div>
+    </section>
+
+    <section id="about" class="container about">
+      <h2>เกี่ยวกับ NextPlay</h2>
+      <p>NextPlay เป็นเว็บไซต์ตัวอย่างสำหรับการบ้าน เนื้อหาเป็นตัวอย่างเท่านั้น ไม่มีการเชื่อมต่อระบบชำระเงินจริงหรือข้อมูลส่วนตัวของผู้ใช้งาน</p>
+    </section>
+
+    <!-- Social Links (required section) -->
+    <section id="social" class="container social-section">
+      <h2 class="section-title">ติดตามเราบนโซเชียลมีเดีย!</h2>
+      <p class="muted">เชื่อมต่อกับ NextPlay เพื่อรับข่าวสาร โปรโมชั่น และอัปเดตสินค้า</p>
+      <div class="social-list" style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap;align-items:center">
+        <a class="social-btn" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+          <!-- simple FB icon -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.03H8.06v-2.9h2.38V9.4c0-2.35 1.4-3.65 3.55-3.65 1.03 0 2.11.18 2.11.18v2.32h-1.18c-1.16 0-1.52.72-1.52 1.46v1.75h2.6l-.42 2.9h-2.18V22C18.34 21.25 22 17.09 22 12.07z" fill="currentColor"/></svg>
+          <span>Facebook</span>
+        </a>
+
+        <a class="social-btn" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5z" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+          <span>Instagram</span>
+        </a>
+
+        <a class="social-btn" href="https://twitter.com/" target="_blank" rel="noopener" aria-label="Twitter">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23 4.01c-.8.36-1.66.6-2.56.71a4.48 4.48 0 001.97-2.48 9.03 9.03 0 01-2.86 1.1A4.5 4.5 0 0016.11 3c-2.5 0-4.52 2.2-3.95 4.6A12.8 12.8 0 013 4.9a4.5 4.5 0 001.39 6.02c-.67 0-1.3-.2-1.82-.5v.05c0 2.2 1.54 4.03 3.58 4.45-.6.16-1.23.2-1.78.07.5 1.56 1.93 2.7 3.63 2.73A9.05 9.05 0 012 19.54 12.8 12.8 0 008.29 21c7.55 0 11.68-6.3 11.68-11.76v-.53A8.18 8.18 0 0023 4.01z" fill="currentColor"/></svg>
+          <span>Twitter</span>
+        </a>
+
+        <a class="social-btn" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5a2.5 2.5 0 11.02 0zM3 8.99h4v12H3zM9 9h3.7v1.66h.05c.52-.98 1.8-2.02 3.7-2.02 3.95 0 4.68 2.6 4.68 5.98V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21H9z" fill="currentColor"/></svg>
+          <span>LinkedIn</span>
+        </a>
+
+        <!-- Link to PIM file (local workspace) -->
+        <a class="social-btn" href="https://www.pim.ac.th/" target="_blank" rel="noopener" aria-label="PIM">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 2h7l5 5v13a2 2 0 01-2 2H6a2 2 0 01-2-2V4a2 2 0 012-2z" stroke="currentColor" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 2v5h5" stroke="currentColor" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>PIM</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="container contact">
+      <h2>ติดต่อ</h2>
+      <p>อีเมล: nextplay@example.com</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner" style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+      <div>© 2025 NextPlay — สำหรับการเรียนการสอนเท่านั้น</div>
+      <div class="socials">
+        <a href="#" aria-label="Facebook" style="color:var(--muted);margin-right:.6rem">Facebook</a>
+        <a href="#" aria-label="Twitter" style="color:var(--muted);margin-right:.6rem">Twitter</a>
+        <a href="#" aria-label="Line" style="color:var(--muted);margin-right:.6rem">Line</a>
+        <a href="mailto:nextplay@example.com" aria-label="Email" style="color:var(--muted)">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Buy modal (client-side demo only) -->
+  <div id="buyModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" aria-label="ปิด">×</button>
+      <h3 id="modalTitle">ยืนยันการสั่งซื้อ</h3>
+      <div id="modalBody"></div>
+      <div class="modal-actions">
+        <button id="confirmBuy" class="btn primary">ยืนยันการสั่งซื้อ (จำลอง)</button>
+        <button class="btn modal-cancel">ยกเลิก</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Auth modal (login/register tabs) -->
+  <div id="authModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="modal-close" aria-label="ปิด">×</button>
+      <h3 id="authTitle">บัญชีผู้ใช้</h3>
+      <div class="auth-tabs" style="display:flex;gap:.5rem;margin-bottom:.8rem">
+        <button class="tab-btn" data-tab="login">เข้าสู่ระบบ</button>
+        <button class="tab-btn" data-tab="register">สมัครสมาชิก</button>
+      </div>
+      <div id="authBody">
+        <!-- login form -->
+        <form id="auth-login" class="auth-form" onsubmit="alert('เข้าสู่ระบบ (mock)');return false;">
+          <div class="form-row">
+            <label>อีเมล / ชื่อผู้ใช้</label>
+            <input type="text" name="user" placeholder="example@email.com" />
+          </div>
+          <div class="form-row">
+            <label>รหัสผ่าน</label>
+            <input type="password" name="password" placeholder="รหัสผ่าน" />
+          </div>
+          <div style="display:flex;gap:.6rem;align-items:center">
+            <button class="btn primary" type="submit">เข้าสู่ระบบ</button>
+          </div>
+        </form>
+
+        <!-- register form -->
+        <form id="auth-register" class="auth-form" style="display:none;" onsubmit="alert('สมัครสมาชิก (mock) เสร็จสิ้น');return false;">
+          <div class="form-row">
+            <label>ชื่อ</label>
+            <input type="text" name="firstname" placeholder="ชื่อ" />
+          </div>
+          <div class="form-row">
+            <label>นามสกุล</label>
+            <input type="text" name="lastname" placeholder="นามสกุล" />
+          </div>
+          <div class="form-row">
+            <label>อีเมล</label>
+            <input type="email" name="email" placeholder="example@email.com" />
+          </div>
+          <div class="form-row">
+            <label>รหัสผ่าน</label>
+            <input type="password" name="password" placeholder="รหัสผ่าน" />
+          </div>
+          <div style="display:flex;gap:.6rem;align-items:center">
+            <button class="btn primary" type="submit">สมัครสมาชิก</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="nextplay.js"></script>
+</body>
+</html>
