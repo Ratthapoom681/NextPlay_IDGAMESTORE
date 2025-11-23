@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>เข้าสู่ระบบ — NextPlay</title>
+  <link rel="stylesheet" href="nextplay.css">
+  <style>
+    .auth-wrapper{max-width:440px;margin:3rem auto;padding:1.2rem}
+    .auth-card{background:linear-gradient(180deg,#0c0a08,var(--card));padding:1.2rem;border-radius:10px}
+    .auth-card h2{margin-top:0;color:var(--gold)}
+    .form-row{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.8rem}
+    .form-row input{padding:.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:#090707;color:var(--muted)}
+    .helper{color:var(--muted);font-size:.9rem}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">NextPlay</div>
+      <nav class="nav">
+        <a href="nextplay.html">หน้าแรก</a>
+        <a href="nextplay.html#auth">บัญชี</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container auth-wrapper">
+      <div class="auth-card">
+        <h2>เข้าสู่ระบบ</h2>
+        <p class="helper">กรุณาใส่อีเมลหรือชื่อผู้ใช้และรหัสผ่าน (หน้าจอเป็นตัวอย่างเท่านั้น)</p>
+        <form onsubmit="alert('เข้าสู่ระบบ (mock)');return false;">
+          <div class="form-row">
+            <label>อีเมล / ชื่อผู้ใช้</label>
+            <input type="text" name="user" placeholder="example@email.com" />
+          </div>
+          <div class="form-row">
+            <label>รหัสผ่าน</label>
+            <input type="password" name="password" placeholder="รหัสผ่าน" />
+          </div>
+          <div style="display:flex;gap:.6rem;align-items:center">
+            <button class="btn primary" type="submit">เข้าสู่ระบบ</button>
+            <a class="btn" href="register.html">สมัครสมาชิก</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© 2025 NextPlay</div>
+  </footer>
+</body>
+</html>
